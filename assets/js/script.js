@@ -20,7 +20,7 @@ const randomNum = generateRandomNum()
 
 // Fetching API
 const arabicApi = `https://api.alquran.cloud/v1/ayah/${randomNum}/ar.alafasy`
-const banglaApi = `https://api.alquran.cloud/v1/ayah/${randomNum}/bn.bengali`
+const englishApi = `https://api.alquran.cloud/v1/ayah/${randomNum}/en.asad`
 
 const arabic = fetch(arabicApi)
                 .then(blob => blob.json())
@@ -31,7 +31,7 @@ const arabic = fetch(arabicApi)
                     audio.src = data.data.audio
                 })
 
-const bangla = fetch(banglaApi)
+const bangla = fetch(englishApi)
                 .then(blob => blob.json())
                 .then(data => {
                     banglaAyah.textContent = `${data.data.text}`
@@ -39,9 +39,6 @@ const bangla = fetch(banglaApi)
 
 
 // Event Listener
-btnPlay.addEventListener('click', () =>{
-    audio.play()
-})
 generateBtn.addEventListener('click',()=>{
     location.reload()
 })
